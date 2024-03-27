@@ -60,3 +60,12 @@ exports.likePost = catchAsync(async (req, res, next) => {
     data: null
   });
 });
+
+exports.getAllUserPosts = catchAsync(async (req, res, next) => {
+  const posts = await Post.find({ user: req.params.userId });
+
+  res.status(200).json({
+    status: 'success',
+    data: posts
+  });
+});

@@ -24,6 +24,8 @@ router.patch(
   userController.updateMe
 );
 
+router.route('/:id').get(userController.getUser);
+
 router.delete('/deleteMe', userController.deleteMe);
 
 //friend
@@ -40,7 +42,6 @@ router
 
 router
   .route('/:id')
-  .get(userController.getUser)
   .patch(userController.updateUser)
   .delete(userController.deleteUser);
 

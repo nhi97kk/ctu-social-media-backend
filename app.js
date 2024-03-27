@@ -13,6 +13,9 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
 const postRouter = require('./routes/postRoutes');
+const commentRouter = require('./routes/commentRoutes');
+const chatRouter = require('./routes/chatRoutes');
+const messageRouter = require('./routes/messageRoutes');
 
 const app = express();
 // app.use(cors({ origin: 'http://localhost:3000' }));
@@ -76,6 +79,9 @@ app.use((req, res, next) => {
 // 3) ROUTES
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/posts', postRouter);
+app.use('/api/v1/comments', commentRouter);
+app.use('/api/v1/chats', chatRouter);
+app.use('/api/v1/messages', messageRouter);
 
 //page not found
 app.all('*', (req, res, next) => {

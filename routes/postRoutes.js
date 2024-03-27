@@ -15,10 +15,13 @@ router
     postController.createPost
   );
 
+router.get('/all/:userId', postController.getAllUserPosts);
+
 router
   .route('/:id')
   .get(postController.getPost)
-  .post(postController.updatePost);
+  .patch(postController.updatePost)
+  .delete(postController.deletePost);
 
 router.post('/:id/like', postController.likePost);
 
