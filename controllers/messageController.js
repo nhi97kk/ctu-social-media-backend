@@ -11,6 +11,7 @@ exports.deleteMessage = factory.deleteOne(Message);
 
 exports.getAllMessagesOfChats = catchAsync(async (req, res, next) => {
   const messages = await Message.find({ chat: req.params.chatId });
+  console.log(req.params.chatId);
 
   res.status(200).json({
     status: 'success',

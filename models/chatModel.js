@@ -19,13 +19,13 @@ const chatSchema = new mongoose.Schema(
   }
 );
 
-// chatSchema.pre(/^find/, function(next) {
-//   this.populate({
-//     path: 'user',
-//     select: '_id name photo'
-//   });
-//   next();
-// });
+chatSchema.pre(/^find/, function(next) {
+  this.populate({
+    path: 'members',
+    select: '_id name photo'
+  });
+  next();
+});
 
 const Chat = mongoose.model('Chat', chatSchema);
 
